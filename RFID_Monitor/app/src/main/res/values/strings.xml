@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RF ID Monitor</string>
+    <string name="send_cmd">Send Command</string>
+</resources>
