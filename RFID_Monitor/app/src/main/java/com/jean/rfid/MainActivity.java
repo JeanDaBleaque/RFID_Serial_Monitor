@@ -18,12 +18,13 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSend;
     private Button btnConnect;
     private Button btnSettings;
+    private Button btnInterface;
     private Button btnDisconnect;
     private BluetoothAdapter bAdapter = BluetoothAdapter.getDefaultAdapter();
     private BluetoothDevice selectedDevice;
     private static MainActivity instance;
     private static SerialCommunicationObject serialObject;
-    private RFCommandManager commandManager;
+    private static RFCommandManager commandManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +35,11 @@ public class MainActivity extends AppCompatActivity {
         btnSend = findViewById(R.id.btnSend);
         btnConnect = findViewById(R.id.btnConnect);
         btnSettings = findViewById(R.id.btnSettings);
+        btnInterface = findViewById(R.id.btnInterface);
         btnDisconnect = findViewById(R.id.btnDisconnect);
         btnSend.setOnClickListener(commandListener);
         btnSettings.setOnClickListener(settingsListener);
+        btnInterface.setOnClickListener(interfaceListener);
         btnConnect.setOnClickListener(connectListener);
         btnDisconnect.setOnClickListener(disconnectListener);
         txtMonitor.setMovementMethod(new ScrollingMovementMethod());
@@ -86,6 +89,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
     };
+
+    public View.OnClickListener interfaceListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent i = new Intent(MainActivity.this, InterfaceActivity.class);
+            startActivity(i);
+        }
+    };
+
     public View.OnClickListener commandListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -102,6 +114,10 @@ public class MainActivity extends AppCompatActivity {
 
     public static MainActivity getActivity() {
         return instance;
+    }
+
+    public static RFCommandManager getManager() {
+        return commandManager;
     }
 
     public static TextView getMonitor() {

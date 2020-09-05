@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">RF ID Monitor</string>
     <string name="send_cmd">Send Command</string>
+    <string name="title_activity_interface">Interface</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

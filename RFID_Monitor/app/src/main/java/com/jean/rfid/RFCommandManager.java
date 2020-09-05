@@ -48,7 +48,7 @@ public class RFCommandManager {
         return null;
     }
 
-    void handle(String message) {
+    public void handle(String message) {
         String[] split = message
                 .replaceFirst("(?i)" + Pattern.quote("."), "")
                 .split("\\s+");
